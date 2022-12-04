@@ -16,7 +16,7 @@ export default function Form(){
                 <span style={{color:'grey',fontSize:'15px'}}>register and rent bikes here.</span>
 
                 <form id="form" className='flex flex-col' onSubmit={handleSubmit(onSubmit)}>
-                    <input type="text" {...register("firstname",{required:true,pattern:/^[A-Za-z\s]*$/,minLength:2})} placeholder='First name'/>
+                    <input type="text" {...register("firstname",{required:true,pattern:/^[A-Za-z\s]*$/,minLength:2})} placeholder='First name*'/>
                        {errors.firstname ? (
                             <span>
                                 {errors.firstname?.type==="required"&&"This field is required."}
@@ -27,7 +27,7 @@ export default function Form(){
                             
                            
 
-                    <input type="text" {...register("lastname",{required:true,pattern:/^[A-Za-z\s]*$/,minLength:2})} placeholder='Last name'/>
+                    <input type="text" {...register("lastname",{required:true,pattern:/^[A-Za-z\s]*$/,minLength:2})} placeholder='Last name*'/>
                     {errors.lastname ? (
                         <span>
                             {errors.lastname?.type==="required"&&"This field is required."}
@@ -119,7 +119,7 @@ export default function Form(){
                             {errors.bike?.type==="maxLength"&&"Max Length Exceed"}
                         </span>
                     ):(' ')}
-                    
+
                     <select {...register("accessories",{required:true})} >
                         <option disabled={true} selected value="">
                                   --Select gears--
