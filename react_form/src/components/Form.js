@@ -36,7 +36,7 @@ export default function Form(){
                         </span>
                     ):(' ')}
 
-                    <input type="text" {...register("address",{required:true,pattern:/^[^\s]+/})} placeholder='Address'/>
+                    <input type="text" {...register("address",{required:true,pattern:/^[^\s]+/})} placeholder='Address*'/>
                     {errors.address ? (
                         <span>
                             {errors.address?.type==="required"&&"This field is required."}
@@ -45,7 +45,7 @@ export default function Form(){
                     ):(' ')}
 
 
-                    <input type="number" {...register("mobile",{required:true,pattern:/^([+]\d{2})?\d{11}$/})} placeholder='(+63) Mobile number'/>
+                    <input type="number" {...register("mobile",{required:true,pattern:/^([+]\d{2})?\d{11}$/})} placeholder='(+63) Mobile number*'/>
 
                     {errors.mobile ? (
                         <span>
@@ -56,7 +56,7 @@ export default function Form(){
                     ):(' ')}
                     <select {...register("start",{required:true})} >
                         <option disabled={true} selected value="">
-                                --Select starting station--
+                                --Select starting station*--
                         </option>
                             <option>Roosevelt</option>
                             <option>Balintawak</option>
@@ -85,7 +85,7 @@ export default function Form(){
              
                     <select {...register("end",{required:true})} >
                         <option disabled={true} selected value="">
-                                --Select ending station--
+                                --Select ending station*--
                         </option>
                             <option>Roosevelt</option>
                             <option>Balintawak</option>
