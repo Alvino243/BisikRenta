@@ -21,7 +21,6 @@ body{
 }
 
 .register{
-  /* margin-top: 20px; */
   max-width: 978px;
   width: 100vw;
   display:flex;
@@ -42,7 +41,7 @@ body{
 #form{
   max-width: 320px;
   width: 100vw;
-  margin: 2em auto 0.5em;
+  margin: 2em auto;
 }
 
 #form >  input, select .btn{
@@ -67,12 +66,11 @@ select:focus{
   outline: none;
 }
 
-.btn{
+#form > .btn{
   background-color: #84a98c;
   color: #ffffff;
   font-size: 1em;
   cursor: pointer;
-  width: 100%;
 }
 
 .flex{
