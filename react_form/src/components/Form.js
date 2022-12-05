@@ -5,7 +5,7 @@ import{useForm} from 'react-hook-form';
 
 export default function Form(){
 
-    const{register,handleSubmit,formState:{errors}} = useForm()
+    const{register,handleSubmit,watch,formState:{errors}} = useForm()
     const onSubmit = data => console.log(data);
     const data = [
         {Gears: 'Helmet', id:1},
@@ -15,7 +15,7 @@ export default function Form(){
         {Gears: 'Gloves', id:5},
         {Gears: 'Bike kit', id:6}
     ]
-    //console.log(watch("username"));
+    console.log(watch("firstname","lastname","address","mobile","start","end","bike"));
     const [options] = useState(data);
 
     return(
@@ -130,7 +130,7 @@ export default function Form(){
                         </span>
                     ):(' ')}
 
-                    <Multiselect options={options} displayValue="Gears" placeholder='---Select Gears---'/>
+                    <Multiselect {...register("Gears")} options={options} displayValue="Gears" placeholder='---Select Gears---'/>
                     
 
                     <button className='btn'>Sign In</button>
