@@ -3,7 +3,6 @@ import { Multiselect } from 'multiselect-react-dropdown';
 import bgimg from '../assets/bg1.jpg';
 import './styles.css';
 import { useForm } from 'react-hook-form';
-import { useState } from "react";
 
 import QrReader from 'react-qr-scanner'
 export default function Form() {
@@ -18,7 +17,7 @@ export default function Form() {
 
     const{register,handleSubmit,watch,formState:{errors}} = useForm()
     const onSubmit = data => console.log(data);
-    const data = [
+    const datae = [
         {Gears: 'Helmet', id:1},
         {Gears: 'Knee pad', id:2},
         {Gears: 'Elbow pad', id:3},
@@ -27,7 +26,7 @@ export default function Form() {
         {Gears: 'Bike kit', id:6}
     ]
     console.log(watch("firstname","lastname","address","mobile","start","end","bike"));
-    const [options] = useState(data);
+    const [options] = useState(datae);
     
     
     
@@ -48,36 +47,43 @@ export default function Form() {
     };
 
 
-    var modal = document.getElementById("myModal");
-
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on the button, open the modal 
-    btn.onclick = function () {
-        modal.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-        setStartScan(false);
-        modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            setStartScan(false);
-            modal.style.display = "none";
-        }
-    }
 
 
-    const { register, handleSubmit, formState: { errors } } = useForm()
-    const onSubmit = data => console.log(data);
+
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal 
+btn.onclick = function() {
+
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    setStartScan(false);
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    setStartScan(false);
+
+    modal.style.display = "none";
+  }
+}
+
+
+
+
 
 
     return (
@@ -195,11 +201,13 @@ export default function Form() {
 
                     <Multiselect {...register("Gears")} options={options} displayValue="Gears" placeholder='---Select Gears---'/>
    
-
+                    <button className='btn'>Sign In</button>
+                    </form>
                     <button className='btn' id="myBtn" onClick={() => {
                         setStartScan(!startScan);
                     }}>Scan QR Code</button>
                 </div>
+
                 <div className="col-2">
                     <img src={bgimg} alt="" />
 
@@ -228,6 +236,20 @@ export default function Form() {
                     )}
                 </div>
             </div>
+
+
+
+
+
+
+
+
+
+            
         </section>
+
+
+
+                    
     )
 }
