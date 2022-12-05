@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { Multiselect } from 'multiselect-react-dropdown';
 import bgimg from '../assets/bg1.jpg';
 import{useForm} from 'react-hook-form';
+
 export default function Form(){
 
     const{register,handleSubmit,formState:{errors}} = useForm()
     const onSubmit = data => console.log(data);
-
+    const data = [
+        {Gears: 'Helmet', id:1},
+        {Gears: 'Knee pad', id:2},
+        {Gears: 'Elbow pad', id:3},
+        {Gears: 'Reflector/light', id:4},
+        {Gears: 'Gloves', id:5},
+        {Gears: 'Bike kit', id:6}
+    ]
     //console.log(watch("username"));
+    const [options] = useState(data);
 
     return(
         <section>
@@ -120,17 +130,7 @@ export default function Form(){
                         </span>
                     ):(' ')}
 
-                    <select {...register("accessories",{required:true})} >
-                        <option disabled={true} selected value="">
-                                  --Select gears--
-                        </option>
-                            <option>Helmet</option>
-                            <option>Knee pad</option>
-                            <option>Elbow pad</option>
-                            <option>Reflector/Lights</option>
-                            <option>Gloves</option>
-                            <option>Bike kit</option>
-                    </select>
+                    <Multiselect options={options} displayValue="Gears" placeholder='---Select Gears---'/>
                     
 
                     <button className='btn'>Sign In</button>
